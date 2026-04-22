@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* Custom Styles for Large Admin Calendar */
+.large-calendar-container .react-calendar {
+  background: transparent !important;
+  font-family: inherit !important;
+  width: 100% !important;
+}
+
+/* Make individual date tiles much bigger */
+.large-calendar-container .react-calendar__tile {
+  padding: 2.5rem 0.5rem !important; /* Huge padding for vertical height */
+  border-radius: 1.5rem;
+  font-weight: 800;
+  font-size: 1.1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+}
+
+.large-calendar-container .react-calendar__tile:hover {
+  background: rgba(37, 99, 235, 0.05) !important;
+  transform: translateY(-2px);
+}
+
+.large-calendar-container .react-calendar__tile--active {
+  background: #2563eb !important; /* Blue 600 */
+  color: white !important;
+  box-shadow: 0 15px 30px -10px rgba(37, 99, 235, 0.4);
+}
+
+.large-calendar-container .react-calendar__navigation button {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #1e293b;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.large-calendar-container .react-calendar__month-view__weekdays__weekday {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #94a3b8;
+  padding-bottom: 1.5rem;
+  text-decoration: none !important;
+}
+
+.large-calendar-container .react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none !important;
+}
+
+/* Sleek Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px; /* Super thin and elegant */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* Invisible track so it floats */
+  margin-block: 1rem; /* Adds padding to top/bottom of scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.4); /* Subtle gray */
+  border-radius: 20px; /* Fully rounded edges */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(107, 114, 128, 0.7); /* Darkens slightly when hovered */
+}
+
+/* Firefox Fallback */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.4) transparent;
+}
