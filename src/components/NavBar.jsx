@@ -11,8 +11,8 @@ export default function Navbar() {
 
   const isActive = (path) => {
     return location.pathname === path 
-      ? "text-blue-600 font-black" 
-      : "text-gray-500 hover:text-blue-600 font-bold";
+      ? "text-[#162E93] font-black" 
+      : "text-gray-500 hover:text-[#162E93] font-bold";
   };
 
   const handleLogout = () => {
@@ -26,11 +26,17 @@ export default function Navbar() {
       
       {/* Brand Logo */}
       <div className="flex items-center space-x-3">
-        <div className="w-10 h-10 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-xl shadow-lg shadow-blue-200">
-          C
-        </div>
-        <Link to="/" className="text-xl font-black text-gray-900 tracking-tighter">
-          CHAKRA ENGINEERING <span className="text-blue-600 hidden sm:inline">WORKS</span>
+        <Link to="/" className="flex items-center space-x-3">
+          <div className="w-12 h-12 flex items-center justify-center overflow-hidden">
+            <img 
+              src="/logo.png" /* Make sure this matches your filename in the public folder */
+              alt="Chakra Engineering Logo" 
+              className="w-full h-full object-contain"
+            />
+          </div>
+          <span className="text-xl font-black text-gray-900 tracking-tighter">
+            CHAKRA ENGINEERING <span className="text-[#162E93] hidden sm:inline">WORKS</span>
+          </span>
         </Link>
       </div>
 
@@ -50,7 +56,7 @@ export default function Navbar() {
         
         {/* Admin Specific Links */}
         {user?.role === 'admin' && (
-          <Link to="/admin" className="flex items-center space-x-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full font-black border border-blue-100 transition-all">
+          <Link to="/admin" className="flex items-center space-x-2 bg-[#162E93]/10 text-[#162E93] px-4 py-2 rounded-full font-black border border-[#162E93]/20 transition-all">
             <LayoutDashboard size={14} />
             <span>Admin</span>
           </Link>
@@ -60,7 +66,7 @@ export default function Navbar() {
       {/* MOBILE ACTIONS & HAMBURGER */}
       <div className="flex items-center space-x-4">
         {!user && (
-          <Link to="/login" className="md:hidden text-blue-600 font-black text-[10px] uppercase tracking-widest">
+          <Link to="/login" className="md:hidden text-[#162E93] font-black text-[10px] uppercase tracking-widest">
             Login
           </Link>
         )}
@@ -78,7 +84,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-4 border-l pl-8 border-gray-100">
             <div className="flex flex-col items-end">
               <span className="text-[10px] font-black text-gray-800 leading-none uppercase">{user.name}</span>
-              <span className="text-[8px] text-blue-600 font-bold uppercase mt-1">{user.role}</span>
+              <span className="text-[8px] text-[#162E93] font-bold uppercase mt-1">{user.role}</span>
             </div>
             <button onClick={handleLogout} className="p-2.5 rounded-2xl bg-white/50 text-gray-400 hover:text-red-600 transition-all shadow-sm">
               <LogOut size={18} />
@@ -88,7 +94,7 @@ export default function Navbar() {
 
         {/* Login Button (Desktop Only) */}
         {!user && (
-          <Link to="/login" className="hidden md:flex items-center space-x-2 bg-blue-600 text-white px-6 py-3 rounded-[1.2rem] font-bold text-sm shadow-xl shadow-blue-200">
+          <Link to="/login" className="hidden md:flex items-center space-x-2 bg-[#162E93] text-white px-6 py-3 rounded-[1.2rem] font-bold text-sm shadow-xl shadow-[#162E93]/30">
             <span>Client Access</span>
             <ChevronRight size={16} />
           </Link>
@@ -111,7 +117,7 @@ export default function Navbar() {
           )}
 
           {user?.role === 'admin' && (
-            <Link onClick={() => setIsMenuOpen(false)} to="/admin" className="text-lg font-black text-blue-600">Admin Dashboard</Link>
+            <Link onClick={() => setIsMenuOpen(false)} to="/admin" className="text-lg font-black text-[#162E93]">Admin Dashboard</Link>
           )}
 
           {user && (

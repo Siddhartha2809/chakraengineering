@@ -122,28 +122,28 @@ export default function CustomerDashboard() {
         <div className="space-y-8">
           {isLoading ? (
             <div className="flex flex-col items-center justify-center py-32 bg-white/40 backdrop-blur-xl rounded-[2.5rem] border border-white shadow-xl">
-              <Loader2 size={40} className="animate-spin text-blue-600 mb-4" />
+              <Loader2 size={40} className="animate-spin text-[#162E93] mb-4" />
               <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">Loading your data...</p>
             </div>
           ) : myOrders.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-32 bg-white/40 backdrop-blur-xl rounded-[2.5rem] border border-white shadow-xl text-center px-6">
-              <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 mb-6">
+              <div className="w-20 h-20 bg-[#162E93]/10 rounded-full flex items-center justify-center text-[#162E93] mb-6">
                 <Package size={32} />
               </div>
               <h2 className="text-2xl font-black text-gray-800 mb-2">No Active Projects</h2>
               <p className="text-gray-500 font-medium mb-8">You haven't submitted any fabrication requests yet.</p>
-              <Link to="/booking" className="bg-blue-600 text-white px-8 py-4 rounded-2xl font-black shadow-lg shadow-blue-200 hover:bg-blue-700 transition-all active:scale-95 flex items-center">
+              <Link to="/booking" className="bg-[#162E93] text-white px-8 py-4 rounded-2xl font-black shadow-lg shadow-[#162E93]/30 hover:bg-[#0F206C] transition-all active:scale-95 flex items-center">
                 Start a Request <ArrowRight size={18} className="ml-2" />
               </Link>
             </div>
           ) : (
             myOrders.map((order) => (
-              <div key={order.id} className="bg-white/40 backdrop-blur-xl rounded-[2.5rem] border border-white shadow-xl shadow-blue-900/5 p-8 relative overflow-hidden group transition-all hover:shadow-2xl">
+              <div key={order.id} className="bg-white/40 backdrop-blur-xl rounded-[2.5rem] border border-white shadow-xl shadow-[#162E93]/5 p-8 relative overflow-hidden group transition-all hover:shadow-2xl">
                 
                 {/* Top Row: Info */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
                   <div className="flex items-center space-x-4">
-                    <div className="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-blue-200">
+                    <div className="w-14 h-14 bg-[#162E93] rounded-2xl flex items-center justify-center text-white shadow-lg shadow-[#162E93]/30">
                       <Package size={24} />
                     </div>
                     <div>
@@ -220,7 +220,7 @@ export default function CustomerDashboard() {
                   <div className="absolute top-8 left-0 w-full h-1 bg-gray-200/50 rounded-full"></div>
                   {/* Active Progress Line */}
                   <div 
-                    className={`absolute top-8 left-0 h-1 rounded-full transition-all duration-1000 shadow-[0_0_10px_rgba(37,99,235,0.5)] ${order.status.includes('Proposed') ? 'bg-amber-400' : 'bg-blue-600'}`}
+                    className={`absolute top-8 left-0 h-1 rounded-full transition-all duration-1000 shadow-[0_0_10px_rgba(22,46,147,0.5)] ${order.status.includes('Proposed') ? 'bg-amber-400' : 'bg-[#162E93]'}`}
                     style={{ width: `${((getStatusStep(order.status) - 1) / 3) * 100}%` }}
                   ></div>
 
@@ -234,14 +234,14 @@ export default function CustomerDashboard() {
                       <div key={s.step} className="flex flex-col items-center">
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center border-4 transition-all duration-700 z-10 ${
                           getStatusStep(order.status) >= s.step 
-                          ? (order.status.includes('Proposed') && s.step === 1 ? "bg-amber-500 border-amber-100 text-white shadow-lg shadow-amber-200" : "bg-blue-600 border-blue-100 text-white scale-110 shadow-lg shadow-blue-200")
+                          ? (order.status.includes('Proposed') && s.step === 1 ? "bg-amber-500 border-amber-100 text-white shadow-lg shadow-amber-200" : "bg-[#162E93] border-[#162E93]/20 text-white scale-110 shadow-lg shadow-[#162E93]/30")
                           : "bg-white border-gray-100 text-gray-300"
                         }`}>
                           {getStatusStep(order.status) > s.step ? <CheckCircle2 size={14} /> : (order.status.includes('Proposed') && s.step === 1 ? <AlertCircle size={14} /> : <span className="text-[10px] font-bold">{s.step}</span>)}
                         </div>
                         <span className={`mt-3 text-[9px] font-black uppercase tracking-tighter transition-colors duration-700 ${
                           getStatusStep(order.status) >= s.step 
-                          ? (order.status.includes('Proposed') && s.step === 1 ? "text-amber-600" : "text-blue-600") 
+                          ? (order.status.includes('Proposed') && s.step === 1 ? "text-amber-600" : "text-[#162E93]") 
                           : "text-gray-400"
                         }`}>
                           {order.status.includes('Proposed') && s.step === 1 ? 'Negotiating' : s.label}
@@ -264,7 +264,7 @@ export default function CustomerDashboard() {
                       href={order.image_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 font-black text-[10px] uppercase tracking-widest hover:underline transition-all bg-blue-50/50 px-3 py-1.5 rounded-lg border border-blue-100"
+                      className="text-[#162E93] font-black text-[10px] uppercase tracking-widest hover:underline transition-all bg-[#162E93]/10 px-3 py-1.5 rounded-lg border border-[#162E93]/20"
                     >
                       View Uploaded Blueprint ↗
                     </a>

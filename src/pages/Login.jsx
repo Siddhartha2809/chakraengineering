@@ -55,16 +55,16 @@ export default function Login() {
     <div className="min-h-screen bg-[#f1f5f9] flex items-center justify-center p-6 relative overflow-hidden">
       
       {/* BACKGROUND GLOW ORBS */}
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-200/40 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
+      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#162E93]/20 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-indigo-200/30 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="w-full max-w-[450px] relative z-10">
-        <div className="bg-white/40 backdrop-blur-3xl border border-white rounded-[3rem] p-10 shadow-[0_20px_60px_rgba(59,130,246,0.12)] border-white/60 relative group transition-all duration-500 hover:shadow-[0_30px_70px_rgba(59,130,246,0.2)]">
-          <div className="absolute -inset-0.5 bg-gradient-to-tr from-blue-500/10 to-indigo-500/10 rounded-[3.1rem] blur opacity-50 -z-10 group-hover:opacity-100 transition duration-1000"></div>
+        <div className="bg-white/40 backdrop-blur-3xl border border-white rounded-[3rem] p-10 shadow-[0_20px_60px_rgba(22,46,147,0.12)] border-white/60 relative group transition-all duration-500 hover:shadow-[0_30px_70px_rgba(22,46,147,0.2)]">
+          <div className="absolute -inset-0.5 bg-gradient-to-tr from-[#162E93]/10 to-indigo-500/10 rounded-[3.1rem] blur opacity-50 -z-10 group-hover:opacity-100 transition duration-1000"></div>
 
           {/* Header */}
           <div className="text-center mb-10">
-            <div className="w-16 h-16 bg-blue-600 rounded-3xl flex items-center justify-center text-white mx-auto mb-6 shadow-xl shadow-blue-400/40 transform -rotate-3 group-hover:rotate-0 transition-transform duration-500">
+            <div className="w-16 h-16 bg-[#162E93] rounded-3xl flex items-center justify-center text-white mx-auto mb-6 shadow-xl shadow-[#162E93]/40 transform -rotate-3 group-hover:rotate-0 transition-transform duration-500">
               <ShieldCheck size={32} strokeWidth={2.5} />
             </div>
             <h2 className="text-3xl font-black text-gray-800 tracking-tight">
@@ -139,7 +139,7 @@ export default function Login() {
 
             {view === 'login' && (
               <div className="flex justify-end mt-1">
-                <button type="button" onClick={() => toggleView('forgot')} className="text-[10px] font-black uppercase tracking-widest text-blue-600 hover:text-blue-800 transition-colors">
+                <button type="button" onClick={() => toggleView('forgot')} className="text-[10px] font-black uppercase tracking-widest text-[#162E93] hover:text-[#0F206C] transition-colors">
                   Forgot Password?
                 </button>
               </div>
@@ -149,7 +149,7 @@ export default function Login() {
               type="submit" 
               disabled={isSubmitting}
               className={`w-full text-white font-bold py-4 rounded-2xl transition-all shadow-lg flex items-center justify-center group/btn active:scale-95 ${
-                isSubmitting ? 'bg-blue-400 shadow-none cursor-wait' : 'bg-blue-600 hover:bg-blue-700 shadow-blue-500/30'
+                isSubmitting ? 'bg-[#162E93]/60 shadow-none cursor-wait' : 'bg-[#162E93] hover:bg-[#0F206C] shadow-[#162E93]/30'
               }`}
             >
               {isSubmitting ? (
@@ -169,7 +169,7 @@ export default function Login() {
           {/* Toggles */}
           <div className="mt-8 text-center flex flex-col space-y-3">
             {view === 'forgot' ? (
-               <button onClick={() => toggleView('login')} className="text-gray-400 text-xs font-bold uppercase tracking-widest flex items-center justify-center hover:text-blue-600 transition-colors">
+               <button onClick={() => toggleView('login')} className="text-gray-400 text-xs font-bold uppercase tracking-widest flex items-center justify-center hover:text-[#162E93] transition-colors">
                  <ArrowLeft size={14} className="mr-1" /> Back to Login
                </button>
             ) : (
@@ -178,7 +178,7 @@ export default function Login() {
                 <button 
                   type="button"
                   onClick={() => toggleView(view === 'login' ? 'register' : 'login')} 
-                  className="text-blue-600 font-black hover:underline"
+                  className="text-[#162E93] font-black hover:underline"
                   disabled={isSubmitting}
                 >
                   {view === 'login' ? 'Join' : 'Login'}

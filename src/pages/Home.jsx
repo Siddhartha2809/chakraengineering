@@ -14,19 +14,19 @@ export default function Home() {
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="order-2 lg:order-1">
-          <span className="text-blue-600 font-black uppercase text-[10px] tracking-[0.3em] mb-4 block">Precision Engineering</span>
+          <span className="text-[#162E93] font-black uppercase text-[10px] tracking-[0.3em] mb-4 block">Precision Engineering</span>
           <h1 className="text-5xl md:text-7xl font-black text-gray-900 tracking-tighter leading-none mb-6">
             Chakra <br /> 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Engineering.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#162E93] to-indigo-600">Engineering.</span>
           </h1>
           <p className="text-gray-500 text-lg md:text-xl font-medium max-w-lg mb-10 leading-relaxed">
             Leading industrial hub for CNC servicing, custom fabrication, and high-tolerance machining in Gajuwaka.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/services" className="px-8 py-4 bg-blue-600 text-white font-bold rounded-2xl shadow-xl shadow-blue-200 hover:bg-blue-700 transition-all text-center">
+            <Link to="/services" className="px-8 py-4 bg-[#162E93] text-white font-bold rounded-2xl shadow-xl shadow-[#162E93]/30 hover:bg-[#0F206C] transition-all text-center">
               Our Services
             </Link>
-            <Link to="/login" className="px-8 py-4 bg-white text-gray-800 font-bold rounded-2xl border border-gray-200 hover:border-blue-600 transition-all text-center">
+            <Link to="/login" className="px-8 py-4 bg-white text-gray-800 font-bold rounded-2xl border border-gray-200 hover:border-[#162E93] transition-all text-center">
               Customer Login
             </Link>
           </div>
@@ -34,7 +34,7 @@ export default function Home() {
 
         {/* --- LIVE INTERACTIVE MAP --- */}
         <div className="order-1 lg:order-2 relative group">
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[2.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+          <div className="absolute -inset-1 bg-gradient-to-r from-[#162E93] to-indigo-600 rounded-[2.5rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
           <div className="relative bg-white p-3 rounded-[2.5rem] border border-white shadow-2xl overflow-hidden">
             <div className="h-80 md:h-[500px] w-full rounded-[2rem] overflow-hidden border border-gray-100 shadow-inner bg-slate-50">
               <iframe
@@ -52,7 +52,7 @@ export default function Home() {
             {/* Floating Location Badge */}
             <div className="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-white shadow-lg flex items-center justify-between pointer-events-none">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white shadow-md">
+                <div className="w-8 h-8 bg-[#162E93] rounded-lg flex items-center justify-center text-white shadow-md">
                   <MapPin size={16} />
                 </div>
                 <div className="flex flex-col">
@@ -60,7 +60,7 @@ export default function Home() {
                   <span className="text-[9px] text-gray-500 font-bold">Gajuwaka, AP 530012</span>
                 </div>
               </div>
-              <Navigation size={14} className="text-blue-600 animate-pulse" />
+              <Navigation size={14} className="text-[#162E93] animate-pulse" />
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@ export default function Home() {
       <footer className="max-w-7xl mx-auto px-6 border-t border-gray-100 pt-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div className="flex items-center space-x-4 group">
-            <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-[#162E93]/10 flex items-center justify-center text-[#162E93] group-hover:bg-[#162E93] group-hover:text-white transition-all">
               <Phone size={20} />
             </div>
             <div>
@@ -80,7 +80,7 @@ export default function Home() {
           </div>
 
           <div className="flex items-center space-x-4 group">
-            <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-[#162E93]/10 flex items-center justify-center text-[#162E93] group-hover:bg-[#162E93] group-hover:text-white transition-all">
               <MapPin size={20} />
             </div>
             <div>
@@ -90,7 +90,7 @@ export default function Home() {
           </div>
 
           <div className="flex items-center space-x-4 group">
-            <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
+            <div className="w-12 h-12 rounded-2xl bg-[#162E93]/10 flex items-center justify-center text-[#162E93] group-hover:bg-[#162E93] group-hover:text-white transition-all">
               <Wrench size={20} />
             </div>
             <div>

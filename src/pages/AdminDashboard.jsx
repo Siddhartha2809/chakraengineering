@@ -110,7 +110,7 @@ export default function AdminDashboard() {
       case 'Pending': return 'bg-orange-100 text-orange-700 border-orange-200';
       case 'Admin Proposed': return 'bg-amber-100 text-amber-700 border-amber-200';
       case 'Customer Proposed': return 'bg-pink-100 text-pink-700 border-pink-200';
-      case 'Approved': return 'bg-blue-100 text-blue-700 border-blue-200';
+      case 'Approved': return 'bg-[#162E93]/10 text-[#162E93] border-[#162E93]/20';
       case 'In Progress': return 'bg-purple-100 text-purple-700 border-purple-200';
       case 'Completed': return 'bg-emerald-100 text-emerald-700 border-emerald-200';
       default: return 'bg-gray-100 text-gray-600 border-gray-200';
@@ -134,7 +134,7 @@ export default function AdminDashboard() {
         {[
           { label: 'Total', value: bookings.length, color: 'text-gray-800' },
           { label: 'Action Needed', value: bookings.filter(b => b.status === 'Pending' || b.status === 'Customer Proposed').length, color: 'text-orange-600' },
-          { label: 'Active', value: bookings.filter(b => b.status === 'Approved' || b.status === 'In Progress').length, color: 'text-blue-600' },
+          { label: 'Active', value: bookings.filter(b => b.status === 'Approved' || b.status === 'In Progress').length, color: 'text-[#162E93]' },
           { label: 'Done', value: bookings.filter(b => b.status === 'Completed').length, color: 'text-emerald-600' }
         ].map((stat, idx) => (
           <div key={idx} className="bg-white/60 backdrop-blur-md p-5 md:p-6 rounded-2xl border border-white shadow-sm flex flex-col justify-between items-start">
@@ -150,7 +150,7 @@ export default function AdminDashboard() {
       <div className="bg-white/40 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white shadow-xl overflow-hidden">
         <div className="overflow-x-auto min-h-[300px]">
           {isLoading && bookings.length === 0 ? (
-            <div className="flex flex-col items-center justify-center h-full py-20 text-blue-600">
+            <div className="flex flex-col items-center justify-center h-full py-20 text-[#162E93]">
               <Loader2 size={40} className="animate-spin mb-4" />
               <p className="font-bold text-sm uppercase tracking-widest text-gray-500">Syncing with Server...</p>
             </div>
@@ -176,7 +176,7 @@ export default function AdminDashboard() {
                     </td>
                     <td className="px-6 py-4 md:px-8 md:py-5 text-sm font-medium text-gray-600">
                       {booking.service}
-                      {booking.image_url && <ImageIcon size={14} className="inline ml-2 text-blue-500" />}
+                      {booking.image_url && <ImageIcon size={14} className="inline ml-2 text-[#162E93]" />}
                     </td>
                     <td className="px-6 py-4 md:px-8 md:py-5">
                       <span className={`px-3 py-1 rounded-full text-[9px] font-black uppercase border ${getStatusColor(booking.status)}`}>
@@ -215,7 +215,7 @@ export default function AdminDashboard() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* CLIENT PROFILE INFO */}
                 <div className="flex items-start space-x-3 bg-gray-50/50 p-4 rounded-2xl border border-gray-100">
-                  <div className="bg-blue-100 p-2 rounded-xl mt-0.5"><User className="text-blue-600" size={20} /></div>
+                  <div className="bg-[#162E93]/10 p-2 rounded-xl mt-0.5"><User className="text-[#162E93]" size={20} /></div>
                   <div className="w-full">
                     <p className="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-1">Client Profile</p>
                     <p className="font-black text-gray-900 text-lg leading-tight">{selectedJob.customer_name}</p>
@@ -238,12 +238,12 @@ export default function AdminDashboard() {
 
                 {/* TIMELINE */}
                 <div className="flex items-start space-x-3 bg-gray-50/50 p-4 rounded-2xl border border-gray-100">
-                  <div className="bg-blue-100 p-2 rounded-xl mt-0.5"><Calendar className="text-blue-600" size={20} /></div>
+                  <div className="bg-[#162E93]/10 p-2 rounded-xl mt-0.5"><Calendar className="text-[#162E93]" size={20} /></div>
                   <div className="w-full">
                     <p className="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-1">Requested Timeline</p>
                     <div className="mt-2 space-y-1.5">
                       <p className={`text-xs font-bold flex items-center ${selectedJob.status === 'Customer Proposed' ? 'line-through text-gray-400' : 'text-gray-700'}`}>
-                        <span className="w-2 h-2 rounded-full bg-blue-400 mr-2"></span>Start: {selectedJob.start_date}
+                        <span className="w-2 h-2 rounded-full bg-[#162E93]/60 mr-2"></span>Start: {selectedJob.start_date}
                       </p>
                       <p className={`text-xs font-bold flex items-center ${selectedJob.status === 'Customer Proposed' ? 'line-through text-gray-400' : 'text-gray-700'}`}>
                         <span className="w-2 h-2 rounded-full bg-emerald-400 mr-2"></span>End: {selectedJob.end_date}
@@ -256,7 +256,7 @@ export default function AdminDashboard() {
               {/* PROJECT SPECS & BLUEPRINT */}
               <div className="bg-gray-50/50 p-5 rounded-2xl border border-gray-100">
                 <div className="flex items-center space-x-2 mb-3">
-                  <FileText className="text-blue-600" size={16} />
+                  <FileText className="text-[#162E93]" size={16} />
                   <h3 className="text-[10px] font-black uppercase text-gray-400 tracking-widest">Project Specifications</h3>
                 </div>
                 
@@ -273,8 +273,8 @@ export default function AdminDashboard() {
                     <p className="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-2">Attached Blueprint / Reference</p>
                     <a href={selectedJob.image_url} target="_blank" rel="noopener noreferrer" className="block relative group overflow-hidden rounded-xl border border-gray-200">
                       <img src={selectedJob.image_url} alt="Reference" className="w-full h-48 md:h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
-                      <div className="absolute inset-0 bg-blue-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
-                        <span className="bg-white text-blue-600 px-4 py-2 rounded-lg text-xs font-black flex items-center shadow-xl"><ImageIcon size={14} className="mr-2"/> View Full Size Document</span>
+                      <div className="absolute inset-0 bg-[#0F206C]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
+                        <span className="bg-white text-[#162E93] px-4 py-2 rounded-lg text-xs font-black flex items-center shadow-xl"><ImageIcon size={14} className="mr-2"/> View Full Size Document</span>
                       </div>
                     </a>
                   </div>
@@ -309,22 +309,22 @@ export default function AdminDashboard() {
 
               {/* DATE PROPOSER UI */}
               {isProposing && (
-                <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-4 animate-in fade-in slide-in-from-top-2">
-                  <p className="text-[10px] font-black uppercase text-blue-600 tracking-widest mb-3">Suggest New Dates to Client</p>
+                <div className="bg-[#162E93]/5 border border-[#162E93]/20 rounded-2xl p-4 animate-in fade-in slide-in-from-top-2">
+                  <p className="text-[10px] font-black uppercase text-[#162E93] tracking-widest mb-3">Suggest New Dates to Client</p>
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <input 
                       type="date" 
                       onChange={e => setProposedStart(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-blue-200 text-sm font-bold text-gray-700 outline-none focus:border-blue-500" 
+                      className="w-full px-4 py-3 rounded-xl border border-[#162E93]/20 text-sm font-bold text-gray-700 outline-none focus:border-[#162E93]" 
                     />
                     <input 
                       type="date" 
                       onChange={e => setProposedEnd(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-blue-200 text-sm font-bold text-gray-700 outline-none focus:border-blue-500" 
+                      className="w-full px-4 py-3 rounded-xl border border-[#162E93]/20 text-sm font-bold text-gray-700 outline-none focus:border-[#162E93]" 
                     />
                   </div>
                   <div className="flex space-x-2">
-                    <button onClick={handleProposeDates} className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-xl text-xs font-black transition-colors">Send Offer</button>
+                    <button onClick={handleProposeDates} className="flex-1 bg-[#162E93] hover:bg-[#0F206C] text-white py-2.5 rounded-xl text-xs font-black transition-colors">Send Offer</button>
                     <button onClick={() => setIsProposing(false)} className="px-4 bg-white border border-gray-200 hover:bg-gray-50 text-gray-600 rounded-xl text-xs font-black transition-colors">Cancel</button>
                   </div>
                 </div>
@@ -337,7 +337,7 @@ export default function AdminDashboard() {
               {selectedJob.status === 'Pending' && !isProposing && (
                 <>
                   <button onClick={() => setIsProposing(true)} className="bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 px-6 py-3 rounded-xl text-sm font-black transition-all">Propose New Dates</button>
-                  <button onClick={() => updateStatus(selectedJob.id, 'Approved')} className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-sm font-black transition-all">Accept & Approve</button>
+                  <button onClick={() => updateStatus(selectedJob.id, 'Approved')} className="bg-[#162E93] hover:bg-[#0F206C] text-white px-6 py-3 rounded-xl text-sm font-black transition-all">Accept & Approve</button>
                 </>
               )}
 

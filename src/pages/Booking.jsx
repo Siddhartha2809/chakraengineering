@@ -91,12 +91,12 @@ export default function Booking() {
         
         {/* Header */}
         <div className="text-center mb-10">
-          <span className="text-blue-600 font-black uppercase text-[10px] tracking-[0.3em] mb-3 block">Custom Fabrication</span>
+          <span className="text-[#162E93] font-black uppercase text-[10px] tracking-[0.3em] mb-3 block">Custom Fabrication</span>
           <h1 className="text-4xl font-black text-gray-900 tracking-tight">Book Workshop Slot</h1>
           <p className="text-gray-500 font-medium mt-2">Specify your requirements and upload technical drawings.</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white/40 backdrop-blur-2xl border border-white rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_50px_rgba(59,130,246,0.08)] space-y-6">
+        <form onSubmit={handleSubmit} className="bg-white/40 backdrop-blur-2xl border border-white rounded-[2.5rem] p-8 md:p-12 shadow-[0_20px_50px_rgba(22,46,147,0.08)] space-y-6">
           
           {errorMsg && (
             <div className="p-4 bg-red-50 text-red-600 text-sm font-bold rounded-2xl border border-red-100 text-center">
@@ -108,7 +108,7 @@ export default function Booking() {
           <div className="space-y-2">
             <label className="text-[10px] font-black uppercase text-gray-400 ml-2 tracking-widest">Type of Work</label>
             <div className="relative group">
-              <Wrench className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-blue-600 transition-colors" size={18} />
+              <Wrench className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-[#162E93] transition-colors" size={18} />
               <select 
                 required
                 className="w-full pl-12 pr-10 py-4 bg-white/50 border border-white rounded-2xl outline-none focus:bg-white transition-all font-bold text-gray-700 appearance-none shadow-sm"
@@ -116,10 +116,15 @@ export default function Booking() {
                 onChange={(e) => setFormData({...formData, service: e.target.value})}
               >
                 <option value="" disabled>Select Service</option>
-                <option value="CNC Machining">CNC Machining</option>
-                <option value="Argon Welding">Argon Welding</option>
-                <option value="Marine Propeller">Marine Propeller</option>
-                <option value="Iron Frame Fabrication">Iron Frame Fabrication</option>
+                {/* Expanded Core Services list */}
+                <option value="CNC Machining & Job Work">CNC Machining & Job Work</option>
+                <option value="Argon Welding & Fabrication">Argon Welding & Fabrication</option>
+                <option value="Marine Propeller Fabrication">Marine Propeller Fabrication</option>
+                <option value="Air Blowing Systems">Air Blowing Systems</option>
+                <option value="Automotive & Gas Engine Parts">Automotive & Gas Engine Parts</option>
+                <option value="Structural Iron Frames">Structural Iron Frames</option>
+                <option value="Electrical & Heavy Wiring">Electrical & Heavy Wiring</option>
+                <option value="Precision Soldering Bits">Precision Soldering Bits</option>
               </select>
             </div>
           </div>
@@ -129,7 +134,7 @@ export default function Booking() {
             <div className="space-y-2">
               <label className="text-[10px] font-black uppercase text-gray-400 ml-2 tracking-widest">Start Date</label>
               <div className="relative group">
-                <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-blue-600 transition-colors" size={18} />
+                <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-[#162E93] transition-colors" size={18} />
                 <input 
                   type="date" required
                   className="w-full pl-12 pr-4 py-4 bg-white/50 border border-white rounded-2xl outline-none focus:bg-white transition-all font-bold text-gray-700 shadow-sm"
@@ -141,7 +146,7 @@ export default function Booking() {
             <div className="space-y-2">
               <label className="text-[10px] font-black uppercase text-gray-400 ml-2 tracking-widest">Target End</label>
               <div className="relative group">
-                <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-blue-600 transition-colors" size={18} />
+                <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-[#162E93] transition-colors" size={18} />
                 <input 
                   type="date" required
                   className="w-full pl-12 pr-4 py-4 bg-white/50 border border-white rounded-2xl outline-none focus:bg-white transition-all font-bold text-gray-700 shadow-sm"
@@ -155,7 +160,7 @@ export default function Booking() {
           {/* IMAGE UPLOAD SECTION */}
           <div className="space-y-2">
             <label className="text-[10px] font-black uppercase text-gray-400 ml-2 tracking-widest">Reference Image / Blueprint</label>
-            <div className="relative group border-2 border-dashed border-gray-200 hover:border-blue-400 rounded-[2rem] transition-all bg-white/30 p-8 flex flex-col items-center justify-center cursor-pointer">
+            <div className="relative group border-2 border-dashed border-gray-200 hover:border-[#162E93]/50 rounded-[2rem] transition-all bg-white/30 p-8 flex flex-col items-center justify-center cursor-pointer">
               <input 
                 type="file" 
                 accept="image/*,.pdf"
@@ -163,7 +168,7 @@ export default function Booking() {
                 className="absolute inset-0 opacity-0 cursor-pointer"
                 disabled={isSubmitting}
               />
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+              <div className="w-14 h-14 bg-[#162E93]/10 rounded-2xl flex items-center justify-center text-[#162E93] mb-4 group-hover:bg-[#162E93] group-hover:text-white transition-colors">
                 {formData.image ? <ImageIcon size={24} /> : <UploadCloud size={24} />}
               </div>
               <p className="text-sm font-bold text-gray-700 text-center px-4 truncate w-full">
@@ -177,7 +182,7 @@ export default function Booking() {
           <div className="space-y-2">
             <label className="text-[10px] font-black uppercase text-gray-400 ml-2 tracking-widest">Additional Specs</label>
             <div className="relative group">
-              <FileText className="absolute left-4 top-6 text-gray-400 group-focus-within:text-blue-600 transition-colors" size={18} />
+              <FileText className="absolute left-4 top-6 text-gray-400 group-focus-within:text-[#162E93] transition-colors" size={18} />
               <textarea 
                 placeholder="Dimensions, materials, etc..." rows="3"
                 className="w-full pl-12 pr-4 py-4 bg-white/50 border border-white rounded-2xl outline-none focus:bg-white transition-all font-bold text-gray-700 shadow-sm"
@@ -190,7 +195,7 @@ export default function Booking() {
           <button 
             type="submit"
             disabled={isSubmitting}
-            className={`w-full text-white font-black py-5 rounded-2xl shadow-xl transition-all flex items-center justify-center group ${isSubmitting ? 'bg-blue-400 cursor-not-allowed shadow-none' : 'bg-blue-600 hover:bg-blue-700 shadow-blue-200 active:scale-[0.98]'}`}
+            className={`w-full text-white font-black py-5 rounded-2xl shadow-xl transition-all flex items-center justify-center group ${isSubmitting ? 'bg-[#162E93]/60 cursor-not-allowed shadow-none' : 'bg-[#162E93] hover:bg-[#0F206C] shadow-[#162E93]/30 active:scale-[0.98]'}`}
           >
             {isSubmitting ? (
               <>
