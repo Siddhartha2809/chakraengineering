@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Prevent Google from crawling private routes
+Disallow: /admin
+Disallow: /login
+Disallow: /booking
+Disallow: /my-orders
+Disallow: /profile
+
+# Tell Google where your sitemap is
+Sitemap: https://chakra-engineering-web.vercel.app/sitemap.xml
